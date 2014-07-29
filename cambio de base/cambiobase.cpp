@@ -7,60 +7,59 @@ Version:0.1
 Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
 Escribe letras mayusculas en la representación de bases >10.
 */
+
 #include <iostream>
 #include <string>
+#include <sstream>//para el castg
+#include <stdlib.h>     /* atoi */
 
 using namespace std;
 string cambiode10abase(int numero,const int & base);
 string convertir(const int &a);
 int convertir(const char &a);
 int cambiodebasea10(const string &numero,const int &base);
+string cambiobase(int baseE,int baseS,string numero);
 
 int main()
 {
     int baseE,baseS;//base de entrada y de salida
-    cout<<"Introduce la base de entrad y de salida:\n";
+    cout<<"Introduce la base de entrada y de salida:\n";
     cin>>baseE>>baseS;
+    string numero;
+    cout << "Introduce el numero en base "<<baseE<<":\n" << endl;
+    cin.ignore();		//  Needed in order to allow new input.
+    getline(cin,numero);
+    string cambiado;
+    cambiado=cambiobase(baseE,baseS,numero);
+    cout<<"\nEl numero en base "<<baseS<<" es: "<<cambiado<<endl;
+}
+
+string cambiobase(int baseE,int baseS,string numero) {
+	//cambiado y numero son string ya que pueden estar en base 16 y tener letras
+    string cambiado;
+    int base10;//base10 es un numero ya que sabemos que esta en base 10.
     if(baseE!=baseS) {
         if(baseE==10) {
-            //numero es int ya que esta en base 10
-            //cambiado es string ya que puede estar en base 16 y tener letras
+            //numeroE es int ya que esta en base 10
             int numeroE;
-            string cambiado;
-            cout << "Introduce el numero en base 10:\n" << endl;
-            cin>>numeroE;
+            numeroE=atoi(numero.c_str());//pasamos numero a int
             cambiado=cambiode10abase(numeroE,baseS);
-            cout<<"\nEl numero en base "<<baseS<<" es: "<<cambiado<<endl;
         }
         else if(baseS==10) {
-            //numero es un string ya que puede estar en base 16 y tener letras
-            //base10 es un numero ya que sabemos que esta en base 10.
-            string numero;
-            int base10;
-            cout << "Introduce el numero en base "<<baseE<<":\n" << endl;
-			cin.ignore();		//  Needed in order to allow new input.
-            getline(cin,numero);
             base10=cambiodebasea10(numero,baseE);
-            cout<<"\nEl numero en base 10 es: "<<base10<<endl;
+            cambiado=static_cast<ostringstream*>( &(ostringstream() << base10) )->str();//pasamos base10 a string
         }
-		else{//baseE!=10 && baseS!=10
-			//numero es un string ya que puede estar en base 16 y tener letras
-            //base10 es un numero ya que sabemos que esta en base 10.
-            //cambiado es string ya que puede estar en base 16 y tener letras
-            string numero,cambiado;
-            int base10;
-            cout << "Introduce el numero en base "<<baseE<<":\n" << endl;
-			cin.ignore();		//  Needed in order to allow new input.
-            getline(cin,numero);
+        else { //baseE!=10 && baseS!=10
             base10=cambiodebasea10(numero,baseE);
             cambiado=cambiode10abase(base10,baseS);
-            cout<<"\nEl numero en base "<<baseS<<" es: "<<cambiado<<endl;
-		}
+        }
     }
-    else {
-        cout<<"La base de entrada y salida no pueden ser la misma."<<endl;
-    }
+    else cambiado=numero;
+    
+	return cambiado;
 }
+
+
 string convertir(const int & a)
 {
     string aux;
