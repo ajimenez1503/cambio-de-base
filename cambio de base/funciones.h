@@ -1,41 +1,32 @@
 /* (C) Programmed by:
    Antonio Jimenez Martínez
 
-Sotware:cambio de base
-Version:0.1
+Sotware:cambio de base - funciones
+Version:0.2
 
 Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
 Escribe letras mayusculas en la representación de bases >10.
 */
 
+#include <gtk/gtk.h>
 #include <iostream>
+#include <stdio.h>
 #include <string>
-#include <sstream>//para el castg
 #include <stdlib.h>     /* atoi */
+#include <sstream>//para el castg
 
 using namespace std;
+
 string cambiode10abase(int numero,const int & base);
 string convertir(const int &a);
 int convertir(const char &a);
 int cambiodebasea10(const string &numero,const int &base);
 string cambiobase(int baseE,int baseS,string numero);
 
-int main()
-{
-    int baseE,baseS;//base de entrada y de salida
-    cout<<"Introduce la base de entrada y de salida:\n";
-    cin>>baseE>>baseS;
-    string numero;
-    cout << "Introduce el numero en base "<<baseE<<":\n" << endl;
-    cin.ignore();		//  Needed in order to allow new input.
-    getline(cin,numero);
-    string cambiado;
-    cambiado=cambiobase(baseE,baseS,numero);
-    cout<<"\nEl numero en base "<<baseS<<" es: "<<cambiado<<endl;
-}
+
 
 string cambiobase(int baseE,int baseS,string numero) {
-	//cambiado y numero son string ya que pueden estar en base 16 y tener letras
+    //cambiado y numero son string ya que pueden estar en base 16 y tener letras
     string cambiado;
     int base10;//base10 es un numero ya que sabemos que esta en base 10.
     if(baseE!=baseS) {
@@ -55,8 +46,8 @@ string cambiobase(int baseE,int baseS,string numero) {
         }
     }
     else cambiado=numero;
-    
-	return cambiado;
+
+    return cambiado;
 }
 
 
