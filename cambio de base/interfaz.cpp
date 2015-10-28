@@ -156,18 +156,18 @@ int main(int argc, char** argv) {
     gtk_fixed_put(GTK_FIXED(frame), comboS, 250, 100);
 
 
-    calcular = gtk_button_new_with_label("calcular");//creamos el boton escribe
+    calcular = gtk_button_new_with_label("Calcular");//creamos el boton escribe
     gtk_widget_set_size_request(calcular, 80, 35);//determinamso el tamaño del boton escribe
     gtk_fixed_put(GTK_FIXED(frame), calcular, 50, 400);//situamos el boton en la ventana
 
 
-    label1 = gtk_label_new("Escriba numero: ");//creamos una etiqueta 
+    label1 = gtk_label_new("Escriba numero: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), label1, 50, 300);//situamos la etiqueta en la ventana
 
-	labelE = gtk_label_new("Base entrada: ");//creamos una etiqueta 
+	labelE = gtk_label_new("Base entrada: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), labelE, 50, 50);//situamos la etiqueta en la ventana
 
-	labelS = gtk_label_new("Base salida: ");//creamos una etiqueta 
+	labelS = gtk_label_new("Base salida: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), labelS, 250, 50);//situamos la etiqueta en la ventana
 
     label = gtk_label_new("0");//creamos una etiqueta con el numero 0
