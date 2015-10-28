@@ -1,14 +1,12 @@
-//compilar g++ -o interfaz interfaz.cpp `pkg-config --libs --cflags gtk+-2.0`
 /* (C) Programmed by:
-   Antonio Jimenez Martínez
-
-Sotware:cambio de base - interfaz
-Version:0.2
-
-Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
-Escribe letras mayusculas en la representación de bases >10.
-
-*/
+ *   Antonio Jimenez Martínez
+ *
+ * Sotware: Cambio de base + interfaz
+ * Version:0.2
+ * License: GPLv3
+ * Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
+ * Escribe letras mayusculas en la representación de bases >10.
+ **/
 #include "funciones.h"
 
 using namespace std;
@@ -91,7 +89,7 @@ int main(int argc, char** argv) {
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);//creamos una GtkWindow widge
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);//centramos la ventana
     gtk_window_set_default_size(GTK_WINDOW(window), 500, 500);//determinamos el tamaño
-    gtk_window_set_title(GTK_WINDOW(window), "cambio de base");//le ponemos un titulo a la ventana
+    gtk_window_set_title(GTK_WINDOW(window), "Cambio de base");//le ponemos un titulo a la ventana
 
     frame = gtk_fixed_new();//creamos un panel
     gtk_container_add(GTK_CONTAINER(window), frame);//añadimos el panel a la ventana
