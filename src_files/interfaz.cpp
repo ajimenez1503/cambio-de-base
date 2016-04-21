@@ -1,14 +1,12 @@
-//compilar g++ -o interfaz interfaz.cpp `pkg-config --libs --cflags gtk+-2.0`
 /* (C) Programmed by:
-   Antonio Jimenez Martínez
-
-Sotware:cambio de base - interfaz
-Version:0.2
-
-Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
-Escribe letras mayusculas en la representación de bases >10.
-
-*/
+ *   Antonio Jimenez Martínez
+ *
+ * Sotware: Cambio de base + interfaz
+ * Version:0.2
+ * License: GPLv3
+ * Este programa es capaz de realizar cambios de base, lo aplicamos sobre numeros naturales.
+ * Escribe letras mayusculas en la representación de bases >10.
+ **/
 #include "funciones.h"
 
 using namespace std;
@@ -91,7 +89,7 @@ int main(int argc, char** argv) {
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);//creamos una GtkWindow widge
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);//centramos la ventana
     gtk_window_set_default_size(GTK_WINDOW(window), 500, 500);//determinamos el tamaño
-    gtk_window_set_title(GTK_WINDOW(window), "cambio de base");//le ponemos un titulo a la ventana
+    gtk_window_set_title(GTK_WINDOW(window), "Cambio de base");//le ponemos un titulo a la ventana
 
     frame = gtk_fixed_new();//creamos un panel
     gtk_container_add(GTK_CONTAINER(window), frame);//añadimos el panel a la ventana
@@ -101,9 +99,9 @@ int main(int argc, char** argv) {
     menubar = gtk_menu_bar_new();//creamos el menus
     filemenu = gtk_menu_new();//creamos el 1º apartado menu
 
-    file = gtk_menu_item_new_with_label("menu");
-    quit = gtk_menu_item_new_with_label("salir");
-    font = gtk_menu_item_new_with_label("formato");
+    file = gtk_menu_item_new_with_label("Menú");
+    quit = gtk_menu_item_new_with_label("Salir");
+    font = gtk_menu_item_new_with_label("Fuente de salida");
 
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(file), filemenu);
     gtk_menu_shell_append(GTK_MENU_SHELL(filemenu), font);
@@ -156,18 +154,18 @@ int main(int argc, char** argv) {
     gtk_fixed_put(GTK_FIXED(frame), comboS, 250, 100);
 
 
-    calcular = gtk_button_new_with_label("calcular");//creamos el boton escribe
+    calcular = gtk_button_new_with_label("Calcular");//creamos el boton escribe
     gtk_widget_set_size_request(calcular, 80, 35);//determinamso el tamaño del boton escribe
     gtk_fixed_put(GTK_FIXED(frame), calcular, 50, 400);//situamos el boton en la ventana
 
 
-    label1 = gtk_label_new("Escriba numero: ");//creamos una etiqueta 
+    label1 = gtk_label_new("Escriba numero: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), label1, 50, 300);//situamos la etiqueta en la ventana
 
-	labelE = gtk_label_new("Base entrada: ");//creamos una etiqueta 
+	labelE = gtk_label_new("Base entrada: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), labelE, 50, 50);//situamos la etiqueta en la ventana
 
-	labelS = gtk_label_new("Base salida: ");//creamos una etiqueta 
+	labelS = gtk_label_new("Base salida: ");//creamos una etiqueta
     gtk_fixed_put(GTK_FIXED(frame), labelS, 250, 50);//situamos la etiqueta en la ventana
 
     label = gtk_label_new("0");//creamos una etiqueta con el numero 0
